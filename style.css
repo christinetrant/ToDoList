@@ -1,0 +1,103 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+.list { 
+  background-color: #E9E9E9;
+  margin: 20px 50px;
+  padding: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+.list li {
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+  list-style-type: disc;
+}
+
+#inputText { 
+  padding:7px 25px; 
+  border: 1px solid #C8966D; 
+  border-radius: 15px; 
+  font-size: 1.1rem;
+}
+#inputText:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #0066ff;
+}
+button {
+  background:linear-gradient(to bottom, #E9B474 5%, #FFDBA8 100%);
+  background-color:#E9B474;
+  border-radius:15px;
+  border:1px solid #C8966D;
+  display:inline-block;
+  cursor:pointer;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #C8966D;
+}
+#enter {
+  box-shadow: 3px 4px 0px 0px #C8966D;
+  font-size: 1.1rem;
+  padding:7px 25px;
+}
+#enter:hover, .tick {
+  background:linear-gradient(to bottom, #FFDBA8 5%, #E9B474 100%);
+  background-color:#FFE5A0;
+}
+#enter:active {
+  position:relative;
+  top:1px;
+}
+#enter { outline: none; }
+
+.edit, .del, .tick {
+  float: right;
+  font-size: 1rem;
+  padding:5px 12px;
+  margin-left: 5px;
+  box-shadow: 1px 2px 0px 0px #C8966D;
+}
+.hidden { visibility: hidden; }
+.opacity { opacity: 0.5; }
+.done { text-decoration: line-through; }
+
+/* Effect from https://codepen.io/markmead/pen/xympyG */
+.wrapper {
+  animation: sliding-background 60s linear infinite;
+  background: url("https://images.unsplash.com/photo-1452697620382-f6543ead73b5") no-repeat left/200%;
+  height: 40vh;
+  text-align: center;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.title {
+  background: white;
+  color: black;
+  font-weight: 900;
+  font-size: 8vw;
+  letter-spacing: 1vw;
+  line-height: 42vh;
+  margin: 0;
+  mix-blend-mode: lighten;
+  text-transform: uppercase;
+  text-shadow: 0 0 0px, 1px 1px black, 2px 2px black, 3px 3px black, 4px 4px black, 5px 5px black, 6px 6px black, 7px 7px black, 8px 8px black, 9px 9px black, 10px 10px black, 11px 11px black, 12px 12px black, 13px 13px black, 14px 14px black, 15px 15px black, 16px 16px black, 17px 17px black, 18px 18px black, 19px 19px black, 20px 20px black, 21px 21px black, 22px 22px black, 23px 23px black, 24px 24px black, 25px 25px black, 26px 26px black, 27px 27px black, 28px 28px black, 29px 29px black, 30px 30px black, 31px 31px black, 32px 32px black, 33px 33px black, 34px 34px black, 35px 35px black;
+}
+.title:before {
+  color: white;
+  content: attr(data-text);
+  margin-left: -1%;
+  margin-top: -1%;
+  position: absolute;
+}
+
+@keyframes sliding-background {
+  0%, 100% {
+    background-position: 0 40%;
+  }
+  50% {
+    background-position: 100% 40%;
+  }
+}
