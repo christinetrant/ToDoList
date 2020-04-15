@@ -1,6 +1,6 @@
 # To Do List
 
-A simple to do list using HTML, CSS & vanilla javascript - add and delete items
+A simple to do list using HTML, CSS & vanilla javascript - add, delete and edit items
 
 [Demo][1]
 
