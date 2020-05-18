@@ -7,36 +7,36 @@
 // NEED TO DISABLE OTHER BUTTONS WHEN IN EDIT MODE
 
 // DOM Strings
-var button = document.getElementById("enter");
-var input = document.getElementById("inputText")
-var ul = document.querySelector("ul");
-var li = document.querySelector("li");
-var del = document.getElementsByClassName("del");
-var edit = document.getElementsByClassName("edit");
+const button = document.getElementById("enter");
+const input = document.getElementById("inputText")
+const ul = document.querySelector("ul");
+const li = document.querySelector("li");
+const del = document.getElementsByClassName("del");
+const edit = document.getElementsByClassName("edit");
 
-var tickBtn = li.childNodes[3];
-var delBtn = li.childNodes[5];
+const tickBtn = li.childNodes[3];
+const delBtn = li.childNodes[5];
 
-function clearInput() {
+const clearInput = () => {
 	// Clear input field
 	input.value = "";
 	// Focus style on input field
 	input.focus();
 }
 
-function addListItem() {
+const addListItem = () => {
 	// 1. Create a new list item and span
-	var listItem = document.createElement("li");
-	var spanEl = document.createElement("span");
+	const listItem = document.createElement("li");
+	const spanEl = document.createElement("span");
 	// 2. Get value of the input
-	var inputItem = document.createTextNode(input.value);
+	const inputItem = document.createTextNode(input.value);
 	// 3. Create Delete & Edit Buttons to add to list items
-	var editBtn = document.createElement("button");
+	const editBtn = document.createElement("button");
 	editBtn.classList.add("edit");
-	editBtn.innerHTML = "Edit";
-	var delBtn = document.createElement("button");
+	editBtn.textContent = "Edit";
+	const delBtn = document.createElement("button");
 	delBtn.classList.add("del");
-	delBtn.innerHTML = "Del";
+	delBtn.textContent = "Del";
 	// 4. Add value to the new span item then add to list item
 	listItem.appendChild(spanEl);
 	spanEl.appendChild(inputItem);
@@ -50,8 +50,8 @@ function addListItem() {
 }
 
 // Edit an existing list item [FIRST STEP - OUT OF THREE]
-function editListItem(event) {
-	var editContent = event.target.parentNode.getElementsByTagName("span")[0];
+const editListItem = (event) => {
+	const editContent = event.target.parentNode.getElementsByTagName("span")[0];
 	// If editContent is true while in it:
 	if(editContent) {
 		// if edit mode hasn't been selected yet
@@ -72,8 +72,8 @@ function editListItem(event) {
 }
 
 // EDIT LIST ITEM [SECOND STEP - OUT OF THREE]
-function editItem(event) {
-	var editContent = event.target.parentNode.getElementsByTagName("span")[0];
+const editItem = (event) => {
+	const editContent = event.target.parentNode.getElementsByTagName("span")[0];
 	editContent.parentNode.classList.add('current');
 	console.log(editContent.parentNode);
 	// 1. Have the input equal the text so it can be edited
@@ -81,7 +81,7 @@ function editItem(event) {
 	// 2. Focus on the input area
 	input.focus();
 	// 3. Change text on button to show it is in edit mode
-	button.innerHTML = "Confirm";
+	button.textContent = "Confirm";
 	// Change classes from edit to tick[e.g. confirm]
 	event.target.classList.remove('edit');
 	event.target.classList.add('tick');
@@ -99,15 +99,15 @@ function editItem(event) {
 }
 
 // UPDATE LIST ITEM [THIRD STEP - OUT OF THREE]
-function confirmEdit(event) {
-	var current = document.getElementsByClassName("current");
-	var editContent = current[0].getElementsByTagName("span")[0];
+const confirmEdit = (event) => {
+	const current = document.getElementsByClassName("current");
+	const editContent = current[0].getElementsByTagName("span")[0];
 	// The list item is updated
 	editContent.textContent = input.value;
 	// Remove the "current" class from the item
 	current[0].classList.remove("current");
 	// Need to change all buttons to regular state as they don't change on enter key
-	button.innerHTML = "Enter";
+	button.textContent = "Enter";
 	// Change classes back to normal state
 	tickBtn.classList.remove("tick");
 	tickBtn.classList.add("edit");
@@ -126,38 +126,38 @@ function confirmEdit(event) {
 	clearInput();
 }
 
-function toggleListItem(event) {
+const toggleListItem = (event) => {
 	if(event.target.tagName === "SPAN") {
 		event.target.classList.toggle("done");
 	}
 }
 
-function deleteListItem(event) {
+const deleteListItem = (event) => {
 	if(event.target.className === "del") {
 		ul.removeChild(event.target.parentNode);
 	}
 }
 
-function inputValueLength() {
+const inputValueLength = () => {
 	return input.value.length;
 }
 
-function addAfterClick() {
+const addAfterClick = () => {
 	if(inputValueLength() > 0) {
 		addListItem();
 	}
 }
-function addAfterEnter(event) {
+const addAfterEnter = (event) => {
 	if(inputValueLength() > 0 && event.which === 13) {
 		addListItem();
 	}
 }
-function updateAfterClick() {
+const updateAfterClick = () => {
 	if(inputValueLength() > 0) {
 		confirmEdit(event);
 	}
 }
-function updateAfterEnter(event) {
+const updateAfterEnter = (event) => {
 	if(inputValueLength() > 0 && event.which === 13) {
 		confirmEdit(event);
 	}
